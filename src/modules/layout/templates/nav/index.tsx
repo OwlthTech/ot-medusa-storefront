@@ -10,6 +10,7 @@ import clsx from "clsx"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
+// import Image from 'next/image'
 
 const Nav = () => {
   const pathname = usePathname()
@@ -57,29 +58,35 @@ const Nav = () => {
       >
         <nav
           className={clsx(
-            "text-gray-900 flex items-center justify-between w-full h-full text-small-regular transition-colors duration-200",
+            "text-primary flex items-center justify-between w-full h-full text-small-regular transition-colors duration-200",
             {
-              "text-white group-hover:text-gray-900": isHome && !isScrolled,
+              "text-secondary group-hover:text-primary": isHome && !isScrolled,
             }
           )}
         >
-          <div className="flex-1 basis-0 h-full flex items-center">
+          <div className="flex items-center flex-1 h-full basis-0">
             <div className="block small:hidden">
               <Hamburger setOpen={toggle} />
             </div>
-            <div className="hidden small:block h-full">
+            <div className="hidden h-full small:block">
               <DropdownMenu />
             </div>
           </div>
 
           <div className="flex items-center h-full">
-            <Link href="/" className="text-xl-semi uppercase">
-              Acme
+            <Link href="/" 
+            className={clsx(
+              "text-xl-semi text-primary transition-all duration-200",
+              {
+                "text-secondary group-hover:text-primary": isHome && !isScrolled
+              }
+            )}>
+              Orgotel
             </Link>
           </div>
 
-          <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
-            <div className="hidden small:flex items-center gap-x-6 h-full">
+          <div className="flex items-center justify-end flex-1 h-full gap-x-6 basis-0">
+            <div className="items-center hidden h-full small:flex gap-x-6">
               {process.env.FEATURE_SEARCH_ENABLED && <DesktopSearchModal />}
               <Link href="/account">Account</Link>
             </div>

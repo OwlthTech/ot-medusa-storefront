@@ -102,7 +102,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
         className={clsx(
           "border border-gray-200 p-5 min-h-[220px] h-full w-full flex flex-col justify-between transition-colors",
           {
-            "border-gray-900": isActive,
+            "border-primary": isActive,
           }
         )}
       >

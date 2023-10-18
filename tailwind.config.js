@@ -7,6 +7,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: 'rgba(var(--color-primary), <alpha-value>)',
+        secondary: 'rgba(var(--color-secondary), <alpha-value>)'
+      },
+      fontFamily: {
+        default: ['var(--font-inter)','sans-serif'],
+      },
       transitionProperty: {
         "width": "width",
         "spacing": 'margin, padding',
